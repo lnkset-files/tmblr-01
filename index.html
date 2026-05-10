@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title>lnkset's home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style></style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body onload="startClock()">
+    <div id="pagecontent"></div>
+
+    <div id="navbar">
+      <button id="home">
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 23 23"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.3194 5.56943C12.3194 2.66993 14.6699 0.319427 17.5694 0.319427C20.4689 0.319427 22.8194 2.66993 22.8194 5.56943C22.8194 8.46892 20.4689 10.8194 17.5694 10.8194C14.6699 10.8194 12.3194 8.46892 12.3194 5.56943Z"
+            fill="#949FE1"
+          />
+          <path
+            d="M0 5.56943L5.56943 0L11.1389 5.56943L5.56943 11.1389L0 5.56943Z"
+            fill="#949FE1"
+          />
+          <path
+            d="M0.569397 12.5694H10.5694V22.5694H0.569397V12.5694Z"
+            fill="#949FE1"
+          />
+          <path
+            d="M16.6944 12.5694H18.4444V22.5694H16.6944V12.5694Z"
+            fill="#949FE1"
+          />
+          <path
+            d="M22.8194 16.7361V18.4028H12.3194V16.7361H22.8194Z"
+            fill="#949FE1"
+          />
+        </svg>
+      </button>
+      <hr />
+      <div id="icons"></div>
+      <div id="clock"></div>
+    </div>
+    <div id="navmenu"></div>
+  </body>
+
+  <script src="script.js"></script>
+  <script>
+    function startClock() {
+      setInterval(()=>{
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
+      },1);
+    }
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    }
+  </script>
+</html>
